@@ -11,7 +11,32 @@ import static org.junit.Assert.*;
  */
 public class ExampleUnitTest {
     @Test
-    public void addition_isCorrect() {
-        assertEquals(4, 2 + 2);
+    public void Test01delAlgorithm() {
+        String bottomString = "50-2";
+        String expectedString = "50-";
+        String newBottomString = "";
+        String stringAfterDel = DeleteAlgorithm.delAlgorithm(bottomString, newBottomString);
+
+        assertEquals(expectedString, stringAfterDel);
+    }
+
+    @Test
+    public void Test02delAlgorithm() {
+        String bottomString = "";
+        String expectedString = "0";
+        String newBottomString = "";
+        String stringAfterDel = DeleteAlgorithm.delAlgorithm(bottomString, newBottomString);
+
+        assertEquals(expectedString, stringAfterDel);
+    }
+
+    @Test
+    public void Test03delAlgorithm() {
+        String bottomString = null;
+        String expectedString = "0";
+        String newBottomString = "";
+        String stringAfterDel = DeleteAlgorithm.delAlgorithm(bottomString, newBottomString);
+
+        assertEquals(expectedString, stringAfterDel);
     }
 }

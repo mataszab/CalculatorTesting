@@ -240,16 +240,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void deleteOneChar() {
         String bottomStr = tvMain.getText().toString();
-        String newBottomStr;
-        if (bottomStr.length() == 1) {  // If bottom text is:  0, 1 ... 9.
-            tvMain.setText("0");
-        }
-        else if (bottomStr.length() == 2 && bottomStr.charAt(0) == '-') {   // If bottom text is:  -1, -2 ... -9.
+        String newBottomStr = "";
+        String resultAfterDel = DeleteAlgorithm.delAlgorithm(bottomStr, newBottomStr);
+
+        if (resultAfterDel.equals("0")) {  // If bottom text is:  0, 1 ... 9. or bottom text is:  -1, -2 ... -9.
             tvMain.setText("0");
         }
         else {  // If bottom text is:  10, 11, -10, -11 ... infinity.
-            newBottomStr = bottomStr.substring(0, bottomStr.length() - 1);
-            tvMain.setText(newBottomStr);
+            tvMain.setText(resultAfterDel);
         }
     }
 
